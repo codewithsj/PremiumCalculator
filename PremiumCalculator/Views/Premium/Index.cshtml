@@ -1,0 +1,67 @@
+﻿
+@{
+    ViewBag.Title = "Calculate Monthly Premium";
+}
+
+
+@section scripts{
+    <script src="~/Scripts/Premium/Premium.js"></script>
+}
+
+
+<h2>Calculate Monthly Premium</h2>
+
+<div ng-app="premiumApp">
+    <br />
+    <div ng-controller="premiumController">
+        <ng-form name='premiumForm'>
+            <div class="form-group">
+                <label for="userName" class="col-md-2 control-label">Name</label>
+                <div class="col-md-10">
+                    <input type="text" id="userName" name="userName" class="form-control mgnbtm-15" ng-model="premium.name" required />
+                    <span style="color:red" class="mgnbtm-20" ng-show="isSubmitted && premiumForm.userName.$error.required">Please enter a valid Name</span>
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="age" class="col-md-2 control-label">Age</label>
+                <div class="col-md-10">
+                    <input type="number" id="age" name="age" class="form-control mgnbtm-15" ng-model="premium.age" required min="1" max="110" />
+                    <span style="color:red" class="mgnbtm-20" ng-show="isSubmitted && (premiumForm.age.$error.required || premiumForm.age.$error.max || premiumForm.age.$error.min)">Please enter a valid Age (0 - 110)</span>
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="dob" class="col-md-2 control-label">Date of Birth</label>
+                <div class="col-md-10">
+                    <input type="date" id="dob" name="dob" class="form-control mgnbtm-15" ng-model="premium.dob" required max="{{maxDate}}" valueAsDate="{{dateAsDate}}" />
+                    <span style="color:red" ng-show="isSubmitted && (premiumForm.dob.$error.required || premiumForm.dob.$error.max)">Please enter a valid Date of Birth</span>
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="occupation" class="col-md-2 control-label">Occupation</label>
+                <div class="col-md-10">
+                    <select id="occupation" name="occupation" class="form-control mgnbtm-15" ng-model="occupation" ng-change="manageOccupationChangeEvent(premiumForm)" ng-options="item.Name for item in occupationItems track by item.ID" required>
+                        <option value="">--Select Occupation--</option>
+                    </select>
+                    <span style="color:red" ng-show="isSubmitted && premiumForm.occupation.$error.required">Please select an Occupation</span>
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="deathSumInsured" class="col-md-2 control-label">Death - Sum Insured</label>
+                <div class="col-md-10">
+                    <input type="number" id="deathSumInsured" name="deathSumInsured" class="form-control mgnbtm-15" ng-model="premium.deathSumInsured" required min="0.00" />
+                    <span style="color:red" ng-show="isSubmitted && (premiumForm.deathSumInsured.$error.required || premiumForm.deathSumInsured.$error.min)">Please enter a valid Death - Sum Insured</span>
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="mgnbtm-15 mgntop-20 mgnleft-15">
+                    <input type="submit" ng-click="calculateMonthlyPremium(premiumForm)" class="btn btn-primary btn-sm" value="Calculate" />
+                    <input type="button" ng-click="clearControls();" class="btn btn-default btn-sm" value="Reset" />
+                </div>
+            </div>
+        </ng-form>
+        <div class="row">
+            <div class="btn-info col-md-6 mgnbtm-15 mgntop-20 mgnleft-20" id="divMonthlyPremium" ng-show="toggleMonthlyPremium"></div>
+            <div class="col-md-6 mgnbtm-20"></div>
+        </div>
+    </div>
+</div>

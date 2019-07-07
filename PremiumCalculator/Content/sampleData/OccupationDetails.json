@@ -1,0 +1,32 @@
+﻿[
+  {
+    "id": 1,
+    "name": "Cleaner",
+    "ratingID": 3
+  },
+  {
+    "id": 2,
+    "name": "Doctor",
+    "ratingID": 1
+  },
+  {
+    "id": 3,
+    "name": "Author",
+    "ratingID": 2
+  },
+  {
+    "id": 4,
+    "name": "Farmer",
+    "ratingID": 4
+  },
+  {
+    "id": 5,
+    "name": "Mechanic",
+    "ratingID": 4
+  },
+  {
+    "id": 6,
+    "name": "Florist",
+    "ratingID": 3
+  }
+]

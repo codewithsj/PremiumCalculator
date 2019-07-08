@@ -6,6 +6,16 @@ This is a sample project that I have created for TAL to evaluate my technical sk
 
 ## Getting Started
 
+How to run the project:
+- Clone the project to your local workspace
+- Open the folder "Premium Calculator"  (e.g. "D:\git\source\repo\PremiumCalculator")
+- Open the solution file "PremiumCalculator.sln"
+- Build the project by pressing F5
+- Provide the values for all the input fields
+- Press the button "Calculate" to calculate your monthly premium amount 
+- Press the button "Reset" to clear the values available in the controls or to reset the form to the initial state
+- If the values for all the input fields are provided, change the value in the occupation dropdown list to calculate the monthly income.
+
 ## Built With
 - MVC 
 - AngularJS

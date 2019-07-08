@@ -2,12 +2,16 @@
 
 This repository provides the ability for users to calculate their monthly premium based on their occupation, age, and the death cover amount.
 
-This is a sample project that I have created for TAL to evaluate my technical skils with which they would be able to proceed with the selection criteria.
+This is a sample project that I have created for TAL to evaluate my technical skills which would help them to proceed with their selection process.
 
 ## Getting Started
 
 ## Built With
 - MVC 
+- AngularJS
+- Bootstrap
+- CSS
+
 ## Assumptions:
 - There is no requirement to save the data provided by the user.
 - Entity Framework is not a mandatory requirment for this application.
